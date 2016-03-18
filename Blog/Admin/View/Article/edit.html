@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<link rel="stylesheet" href="__PUBLIC__/css/public.css" />
+	<title></title>
+
+</head>
+<body>
+	<form action="{|U:'Article/edit'}" method="post">
+		<table class="table">
+			<tr >
+				<td class="th" colspan="2">编辑博文</td>
+			</tr>
+			<tr>
+				<td>博文标题</td>
+				<td>
+					<input type="text" name="title" value="{$article.title}"/>
+					
+				</td>
+			</tr>
+			<tr>
+				<td>缩略图</td>
+				<td><input type="file" name="thumb"/><img src="{$article.thumb}" alt=""></td>
+			</tr>
+			<tr>
+				<td>栏目</td>
+				<td>
+					<select name='cid'>
+						<option value="">====选择栏目====</option>
+						<list from="$category" name="$d">
+
+                             <if value="$d['cid'] eq $article['cid']">
+							<option value="{$d.cid}" selected="selected">{$d.cname}</option>
+                              <else/>
+							<option value="{$d.cid}">{$d.cname}</option>
+							</if>
+
+
+
+						</list>
+					</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td>内容</td>
+				<td>
+					<!--<textarea id="editor_id" name="" style="width:700px;height:300px;"></textarea>-->
+					<script id="container" name="content" type="text/plain" style="width:700px;height:300px;">{$article.content}</script>
+				</td>
+			</tr>
+			<tr>
+				<td>点击次数</td>
+				<td>
+					<input type="" name='click' value="{$article.click}"/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input  type="hidden"  name="aid" value="{$article.aid}"/>
+					<input type="submit" value="修改" class="input_button"/>
+					<input type="reset" class="input_button"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+
+
+	<script type="text/javascript" src="__PUBLIC__/ueditor.config.js"></script>
+	<!-- 编辑器源码文件 -->
+	<script type="text/javascript" src="__PUBLIC__/ueditor.all.js"></script>
+	<!-- 实例化编辑器 -->
+	<script type="text/javascript">
+		var editor = UE.getEditor('container');
+	</script>
+</body>
+</html>

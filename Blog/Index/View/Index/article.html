@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>后盾网博客-</title>
+	<meta name="keywords" content="{$article.keywords}" />
+	<meta name="description" content="{$article.description}" />
+	<link rel="stylesheet" href="__PUBLIC__/css/article.css" />
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/index.js"></script>
+	<link rel="stylesheet" href="__PUBLIC__/css/index.css" />
+</head>
+<body>
+	<!-- 头部 -->
+	<include file="__VIEW__/Common/head" />
+	<!-- 头部结束 -->
+	<!-- 发布内容区域 -->
+
+
+
+
+
+
+
+
+	<div id="arc" >
+		<!-- 左侧区域 -->
+		<div class="arc_left_box_read">
+			<div class="arc_show_read">
+				<h2>文章阅读</h2>
+				<b>
+					<span>创作于：</span>
+					<span class="red">{$article.time|date:'Y-m-d',@@}&nbsp&nbsp</span>
+					<span>栏目：</span>
+					<span class="red">{$article.cname}&nbsp&nbsp</span>
+					<span>阅读：</span>
+					<span class="red">{$article.click}次</span>
+				</b>
+				
+			</div>
+			<div class="arc_left_read">
+
+				<div class="arc_left_content">
+					<p class="arc_tittle_read">{$article.title}</p>
+					<div class="arc_read">{$article.content}</div>
+				</div>
+			</div>
+			<!-- 用户留言区域 -->
+			<div id="msg_read">
+				<p id="msg_tittle">用户评论</p>
+				<ul>
+
+               <list from="$comment" name="$d">
+					<li>
+						<b><?php   echo $hd['list']['d']['index']+$limitF   ?>楼</b>&nbsp&nbsp
+						<span>{$d.nickname}</span>&nbsp&nbsp
+						<em>{$n.time|date:'Y-m-d',@@}</em>
+						<br />
+						<br />
+						<p>{$d.content}</p>
+						<br />
+					</li>
+			   </list>
+
+				</ul>
+			</div>
+			<div class="page">
+				{$page}
+			</div>
+			<!-- 用户留言区域结束 -->
+
+			<!-- 用户发布留言区域 -->
+			<div id="send_content">
+				<form action="{|U:'Index/comment'}" method="POST" name="">
+					<table class="table">
+						<tr>
+							<td>
+								<input type="text" name="nickname" id="uname"/>&nbsp&nbsp昵称(必填)<span class="star">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="text" name="code" id="verify"/>
+								<img src="{|U:'Index/code'}" alt="" id="verify_img"/>
+								&nbsp&nbsp验证码(必填)<span class="star">*</span>
+							</td>
+						</tr>
+						<tr>
+							<td><textarea name="content" id="contents"></textarea></td>
+						</tr>
+						<tr>
+							<td>
+								<input  type="hidden" name="aid" value="{$hd.get.aid}"/>
+								◎欢迎参与讨论，请在这里发表您的看法、交流您的观点。
+								<input type="submit" value="提交评论" id="sub"/>
+							</td>
+						</tr>
+					</table>
+					
+				</form>
+			</div>
+			<!-- 用户发布留言区域结束 -->
+		</div>
+		<!-- 左侧区域结束 -->
+		<!-- 右侧区域 -->
+		<include file="__VIEW__/Common/right" />
+		<!-- 右侧区域结束 -->
+
+	</div>
+	<!-- 发布内容区域结束 -->
+	<!-- 返回顶部按钮 -->
+	<div>
+		<a href="javascript:void(0)" id="back_top"></a>
+	</div>
+	<!-- 返回顶部结束 -->
+	<!-- 底部foot区域 -->
+	<div id="foot_box">
+		<div id="foot">
+			<p id="foot_l">Copyright © 2013-2013 xiaofan. All rights reserved.</p>
+			<p id="foot_r">
+			
+			</p>
+		</div>
+	</div>
+
+	</div>
+	<!--[if IE 6]>
+    <script type="text/javascript" src="__PUBLIC__/js/iepng.js"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('#arc .arc_left .arc_left_date p,#arc .arc_left_box #foucs_photo .foucs_photo_l img','background');
+    </script>
+	<![endif]-->
+</body>
+</html>
+	<!-- 底部foot区域结束 -->

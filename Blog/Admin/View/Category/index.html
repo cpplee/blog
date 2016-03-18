@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title></title>
+	<link rel="stylesheet" href="__PUBLIC__/css/public.css" />
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/public.js"></script>
+</head>
+<body>
+	<table class="table">
+		<tr>
+			<td class="th" colspan="10">查看栏目</td>
+		</tr>
+		<tr>
+			<th>CID</th>
+			<th>栏目名称</th>
+			<th>状态</th>
+			<th>操作</th>
+		</tr>
+
+   <list from="$cate" name="$d">
+		<tr>
+			<td>{$d.cid}</td>
+			<td><a href="">{$d.cname}</a></td>
+
+			<if value="$d.isoff eq 0">
+			<td>开启</td>
+			<else/>
+			<td>关闭</td>
+			</if>
+
+			<td>
+				<if value="$d.isoff eq 0">
+				<a href="{|U:'Category/isoff',array('cid'=>$d['cid'],'w'=>1)}">[关闭]</a>
+
+					<else/>
+					<a href="{|U:'Category/isoff',array('cid'=>$d['cid'])}">[开启]</a>
+				</if>
+
+					<a href="{|U:'Category/edit',array('cid'=>$d['cid'])}">[编辑]</a>
+				<a href="{|U:'Category/del',array('cid'=>$d['cid'])}" class="del">[删除]</a>
+			</td>
+		</tr>
+
+   </list>
+	</table>
+		<div class="page">
+			{$page}
+		</div>
+</body>
+</html>

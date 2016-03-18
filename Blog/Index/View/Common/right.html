@@ -1,0 +1,71 @@
+<div class="arc_right_box">
+    <!-- 关于后盾网 -->
+    <div class="right_little_box">
+        <p class="right_tittle">关于BLOG</p>
+        <a href=""><img src="__PUBLIC__/images/1.jpg" alt="" id="logo_img"/></a>
+        <ul class="right_des">
+            <li>BLOG</li>
+        </ul>
+    </div>
+    <!-- 关于后盾网 -->
+
+
+
+
+
+    <!-- 栏目列表 -->
+    <div class="right_little_box">
+        <p class="right_tittle">栏目列表</p>
+
+        <ul class="right_category">
+            <list from="$category" name="$d">
+            <li><a href="">{$d.cname}</a></li>
+            </list>
+        </ul>
+    </div>
+    <!-- 栏目列表结束 -->
+    <!-- 最新文章 -->
+    <div class="right_arc_little_box">
+        <p class="right_tittle">最新文章</p>
+        <div class="hot_arc">
+            <div class="arc_js_move">
+                <div class="right_roll">
+                    <ul class="right_des">
+
+                        <list from="$newArticle" name="$d">
+
+                        <li><a href="">{$d.title}</a></li>
+
+                        </list>
+
+
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- 最新文章结束 -->
+    <!-- 最新回复 -->
+    <div class="right_little_box">
+        <p class="right_tittle">最新回复</p>
+        <ul class="right_answer">
+            <list from="$newComment" name="$d">
+            <li><a href="">{$d.content}</a></li>
+            </list>
+
+        </ul>
+    </div>
+    <!-- 最新回复结束 -->
+    <!-- 结果统计 -->
+    <div class="right_little_box">
+        <p class="right_tittle">站点统计</p>
+        <ul class="right_des count_bg">
+            <li>文章总数：<span>{$total.article}篇</span></li>
+            <li>回复总数：<span>{$total.comment}条</span></li>
+            <li>浏览总数：<span>{$total.click}次</span></li>
+        </ul>
+    </div>
+    <!-- 结果统计结束 -->
+</div>
